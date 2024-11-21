@@ -1,5 +1,3 @@
-from typing import List
-
 class Solution:
 
     def countUnguarded(self, m: int, n: int, guards: List[List[int]], walls: List[List[int]]) -> int:
@@ -66,23 +64,4 @@ class Solution:
             res -= explore_east(grid, row, col)
             res -= explore_west(grid, row, col)
 
-        return res, grid
-    
-test = Solution()
-res, grid = test.countUnguarded(m = 4, n = 6, guards = [[0,0],[1,1],[2,3]], walls = [[0,1],[2,2],[1,4]])
-
-print(res)
-for row in grid:
-    print(*row)
-
-res, grid = test.countUnguarded(m = 3, n = 3, guards = [[1,1]], walls = [[0,1],[1,0],[2,1],[1,2]])
-
-print(res)
-for row in grid:
-    print(*row)
-
-res, grid = test.countUnguarded(m = 2, n = 7, guards = [[1,5],[1,1],[1,6],[0,2]], walls = [[0,6],[0,3],[0,5]])
-
-print(res)
-for row in grid:
-    print(*row)
+        return res

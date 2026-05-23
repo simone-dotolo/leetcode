@@ -1,14 +1,13 @@
 class Solution:
     def check(self, nums: List[int]) -> bool:
-        min_index = 0
-        min_value = nums[0]
-        for i in range(1,len(nums)):
-            if nums[i] <= min_value and nums[i-1] != nums[i]:
-                min_value = nums[i]
-                min_index = i
+        start = nums[0]
+        dec = 0
         
-        for i in range(1,len(nums)):
-            index = (min_index + i) % len(nums)
-            if nums[index] < nums[index - 1]:
-                return False
+        for i in range(1, len(nums)):
+            if nums[i] < nums[i - 1]:
+                dec += 1
+        
+        if dec > 1 or dec == 1 and nums[-1] > start:
+            return False
+        
         return True
